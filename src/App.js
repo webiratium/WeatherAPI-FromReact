@@ -52,7 +52,10 @@ function App() {
           : 'app')
         : 'app'}>
       <main>
-        <div className="Search-box">
+      <div className="container">
+        <div className="row justify-content-center" >
+          <div className="col-lg-7">
+          <div className="Search-box">
           <input
             type="text"
             className="search-bar"
@@ -77,7 +80,19 @@ function App() {
             </div>
           </>
         ) : (" ")}
+          </div>
+        </div>
+      </div>
       </main>
+      <footer>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-auto">
+            <h5>Created by <a href="https://www.tempiltin.uz/">tempiltin</a> </h5>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
