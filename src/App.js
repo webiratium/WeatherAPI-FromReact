@@ -17,7 +17,7 @@ function App() {
         .then(result => {
           setweather(result);
           setQuery('');
-          console.log(result);
+          // console.log(result);
         }
         );
   }
@@ -43,9 +43,14 @@ function App() {
     return `${day}  ${date} ${month} ${year}`
   }
   // console.log(dateBuilder(new Date()));
-
+  // console.log(weather.weather[0].main);
   return (
-    <div className="app ">
+    <div className={
+      (typeof weather.main != "undefined")
+        ? ((weather.main.temp > 16)
+          ? 'app warm'
+          : 'app')
+        : 'app'}>
       <main>
         <div className="Search-box">
           <input
@@ -64,8 +69,11 @@ function App() {
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp"> 15 <sup>'</sup>c <span>🌡</span> </div>
-              <div className="weather"> Quyoshli </div>
+              <div className="temp">
+                {Math.round(weather.main.temp)}
+                <sup>.</sup>c <span>🌡</span>
+              </div>
+              <div className="weather"> {weather.weather[0].main}</div>
             </div>
           </>
         ) : (" ")}
